@@ -1,0 +1,28 @@
+
+#api for sign_up
+def sign_up
+if !params[:user][:email].blank? && !params[:user][:name].blank? && !params[:user][:password].blank?
+u=User.create(:name => #{params[:user][:name]}, :email => #{params[:user][:email},:password => #{params[:user][:password]} )
+flash[:notice] = "successfully Sign_up sign_in to continue"
+else
+flash[:notice] = "Cannot Sign_up form is not correctly filled"
+end
+
+#api for sign_in
+def sign_in
+if !params[:user][:email].blank? && !params[:user][:password].blank?
+u=User.where("email = #{params[:user][:email]} and password = #{params[:user][:password]}")
+if !u.blank?
+flash[:notice] = "Sign_In Successefully"
+redirect_to "---"
+else
+flash[:notice] = "Cannot Sign_in either email_id or password is not correct"
+end
+end
+end
+
+
+on click of buttons sign_up and sign_in you can call above functions along with the parameters.
+
+
+#You can perform above operation using the Gem Devise also
