@@ -1,0 +1,11 @@
+we have to create a database with beer names which should contain only the given beer_type:-
+IPA 
+brown_ale 
+pilsner 
+lager 
+lambic 
+hefeweizen
+
+Route creted is:-
+
+GET '/beer/:beer_type',to:'beer#display'
